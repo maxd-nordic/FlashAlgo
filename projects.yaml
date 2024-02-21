@@ -26,6 +26,12 @@ projects:
     nrf52833:
         - *module_tools
         - records/projects/nordic/nrf52833.yaml
+    nrf5340_net:
+        - *module_tools
+        - records/projects/nordic/nrf5340_net.yaml
+    nrf5340_app:
+        - *module_tools
+        - records/projects/nordic/nrf5340_app.yaml
     mke15z7:
         - *module_tools
         - records/projects/freescale/common/fsl_flash_driver.yaml

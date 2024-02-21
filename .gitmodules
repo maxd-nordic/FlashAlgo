@@ -1,3 +1,6 @@
 [submodule "source/nordic/nrfx"]
 	path = source/nordic/nrfx
 	url = git@github.com:NordicSemiconductor/nrfx.git
+[submodule "source/nordic/CMSIS_5"]
+	path = source/nordic/CMSIS_5
+	url = https://github.com/ARM-software/CMSIS_5.git

@@ -18,15 +18,10 @@
 #include "nrfx.h"
 
 #define FLASH_DRV_VERS (0x0100+VERS)   // Driver Version, do not modify!
-#define DEVICE_NAME    "nRF53xx_app" //-> define in records
-#define DEVICE_FLASH_START  0x00000000
-#define DEVICE_FLASH_SIZE   0x00200000
-#define UICR_BASE_ADDRESS ((uint32_t)NRF_UICR)
-#define DEVICE_FLASH_PAGE_SIZE 4096
 
 struct FlashDevice const FlashDevice  =  {
     FLASH_DRV_VERS,             // Driver Version, do not modify!
-    DEVICE_NAME,                // Device Name
+    "nRF",                      // Device Name
     ONCHIP,                     // Device Type
     DEVICE_FLASH_START,         // Flash start address
     DEVICE_FLASH_SIZE,          // Flash total size (512 KB)
@@ -37,7 +32,7 @@ struct FlashDevice const FlashDevice  =  {
     3000,                       // Erase Sector Timeout 3000 mSec
     {
         {DEVICE_FLASH_SIZE, DEVICE_FLASH_START}, // 512 KBs of flash
-        {0x001000, UICR_BASE_ADDRESS}, // UICR
+        {0x001000, ((uint32_t)NRF_UICR)}, // UICR
         {SECTOR_END}            // Marks end of sector table
     }
 };

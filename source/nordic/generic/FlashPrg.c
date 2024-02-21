@@ -80,18 +80,15 @@ int EraseSector (unsigned long adr)
  */
 int ProgramPage (unsigned long adr, unsigned long sz, unsigned char *buf)
 {
-    volatile U32* pDest;
-    volatile U32* pSrc;
-    U32 NumWords;
+    U32 NumWords = sz >> 2;
 
-    pDest = (volatile U32*)adr;
-    pSrc = (volatile U32*)buf;    // Always 32-bit aligned. Made sure by CMSIS-DAP firmware
     //
     // adr is always aligned to "Programming Page Size" specified in table in FlashDev.c
     // sz is always a multiple of "Programming Page Size"
     //
-    NumWords = sz >> 2;
+
     //
-    nrfx_nvmc_words_write(pDest, pSrc, NumWords);
+    nrfx_nvmc_words_write(adr, buf, NumWords);
+    while (!nrfx_nvmc_write_done_check()) {}
     return (0);                                  // Finished without Errors
 }

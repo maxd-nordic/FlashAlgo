@@ -1,0 +1,25 @@
+common:
+    target:
+        - cortex-m33
+    group_name:
+        - flash_driver
+    includes:
+        - source
+        - source/nordic/nrfx/mdk
+        - source/nordic/generic/nrfx_config
+        - source/nordic/nrfx/hal
+        - source/nordic/nrfx/drivers/include
+        - source/nordic/nrfx/drivers
+        - source/nordic/nrfx
+        - source/nordic/CMSIS_5/CMSIS/Core/Include
+    sources:
+        - source
+        - source/nordic/generic
+        - source/nordic/nrfx/mdk/system_nrf5340_network.c
+        - source/nordic/nrfx/drivers/src
+    macros:
+        - NRF5340_XXAA_NETWORK=1
+        - DEVICE_FLASH_START=0x01000000
+        - DEVICE_FLASH_SIZE=0x00040000
+        - DEVICE_FLASH_PAGE_SIZE=2048
+        - __ARM_FEATURE_DSP=0
