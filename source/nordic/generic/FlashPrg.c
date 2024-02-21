@@ -68,7 +68,13 @@ int EraseChip (void)
  */
 int EraseSector (unsigned long adr)
 {
-    return nrfx_nvmc_page_erase(adr);
+    int ret = nrfx_nvmc_page_erase(adr);
+
+    if (ret == NRFX_SUCCESS) {
+        return 0;
+    } else {
+        return ret;
+    }
 }
 
 /*
