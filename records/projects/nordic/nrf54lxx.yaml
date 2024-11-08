@@ -1,0 +1,10 @@
+common:
+    target:
+        - cortex-m33
+    group_name:
+        - flash_driver
+    includes:
+        - source
+    sources:
+        - source
+        - source/nordic/nrf54lxx
